@@ -30,8 +30,6 @@ namespace EyeGaze
             ScreenShot screenShot = new ScreenShot();
 
             String picLocation = screenShot.CaptureScreenShot();
-            int x = 3;
-            //ocr.createTSV();
         }
     }
 }
