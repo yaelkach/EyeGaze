@@ -19,6 +19,7 @@ using Page = Tesseract.Page;
 using asprise_ocr_api;
 using System.Xml;
 using Point = System.Drawing.Point;
+using EyeGaze.TextEditor;
 
 namespace EyeGaze
 {
@@ -33,15 +34,18 @@ namespace EyeGaze
             //TesseractOCR ocr = new TesseractOCR();
             //ocr.createTSV();
             //Bitmap img = new Bitmap(@"C:\Users\tomer\Desktop\Yael\Python-Tesseract\test1.png");
-            //TesseractEngine engine = new TesseractEngine("./tessdata", "eng", EngineMode.Default);
+            ////TesseractEngine engine = new TesseractEngine("./tessdata", "eng", EngineMode.Default);
             //Page page = engine.Process(img, PageSegMode.Auto);
             AspOCR ocr = new AspOCR();
             Dictionary<Point, string> wordWithCoordinates = ocr.getWordWithCoordinates();
             List<Point> coordinates = new List<Point>(wordWithCoordinates.Keys);
-            Dictionary<Point, double> distanceFromCoordinate = findDistanceFromCoordinate(100, 100, coordinates);
+            Dictionary<Point, double> distanceFromCoordinate = findDistanceFromCoordinate(177, 480, coordinates);
             List<KeyValuePair<Point, double>> sortedPoints = sortByDistance(distanceFromCoordinate);
 
             List<KeyValuePair<Point, string>> sortedValues = sortValues(wordWithCoordinates, sortedPoints);
+            WordTextEditor word = new WordTextEditor(sortedValues);
+            word.openWord();
+
 
         }
 
