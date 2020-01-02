@@ -1,9 +1,6 @@
 ﻿using Microsoft.CognitiveServices.Speech;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EyeGaze.SpeechToText
 {
@@ -17,7 +14,6 @@ namespace EyeGaze.SpeechToText
             using (var recognizer = new SpeechRecognizer(config))
             {
                 var result = await recognizer.RecognizeOnceAsync();
-
                 if (result.Reason == ResultReason.RecognizedSpeech)
                 {
                     return result.Text;

@@ -5,31 +5,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpeechToTextAlias = EyeGaze.SpeechToText;
+using eyeGaze = EyeGaze.EyeGaze.EyeGaze;
+using System.Windows;
+using EyeGaze.OCR;
+using System.Threading;
 
 namespace EyeGaze.Engine
 {
     class Engine
     {
-        static public void Main(String[] args)
-        {
-            startListen();
-        }
+        public Engine() { }
 
-        public static void startListen()
+        public void startListen()
         {
             MicrosoftCloudSpeechToText t = new MicrosoftCloudSpeechToText();
             SpeechToTextAlias.SpeechToText speechToText = new SpeechToTextAlias.SpeechToText(t.GetType());
             WireEventHandlers(speechToText);
             speechToText.FindActionFromSpeech();
         }
-        private static void WireEventHandlers(SpeechToTextAlias.SpeechToText stt)
+        private void WireEventHandlers(SpeechToTextAlias.SpeechToText stt)
         {
             TriggerHandler handler = new TriggerHandler(actionHandler);
             stt.triggerHandler += handler;
         }
-        public static void actionHandler(object sender, MessageEvent e)
+        public void actionHandler(object sender, MessageEvent e)
         {
-            Console.WriteLine(e.triggerWord);
+            Point p = eyeGaze.GetCursorPosition();
+            MessageBox.Show(p.X + "and" + p.Y);
+            TesseractOCR ocr = new TesseractOCR();
         }
+
     }
 }

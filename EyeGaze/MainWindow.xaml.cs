@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using EngineClass = EyeGaze.Engine.Engine;
 namespace EyeGaze
 {
     /// <summary>
@@ -24,7 +24,8 @@ namespace EyeGaze
         public MainWindow()
         {
             InitializeComponent();
-            TesseractOCR ocr = new TesseractOCR();
+            EngineClass engine = new EngineClass();
+            engine.startListen();
             //ocr.createTSV();
         }
     }
