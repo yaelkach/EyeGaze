@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EyeGaze", "EyeGaze\EyeGaze.csproj", "{323C827F-588E-4766-B361-22DF69D813FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{323C827F-588E-4766-B361-22DF69D813FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323C827F-588E-4766-B361-22DF69D813FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323C827F-588E-4766-B361-22DF69D813FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323C827F-588E-4766-B361-22DF69D813FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CB3522B-3C93-4D64-BD9E-32BBD7B13E6C}
+	EndGlobalSection
+EndGlobal
