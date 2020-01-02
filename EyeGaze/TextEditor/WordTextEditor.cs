@@ -15,15 +15,23 @@ namespace EyeGaze.TextEditor
     {
         private int count = 0;
         List<KeyValuePair<System.Drawing.Point, string>> coordinatesWithWords;
-        public WordTextEditor(List<KeyValuePair<System.Drawing.Point, string>> coordinatesWithWords)
+        public Application application;
+        Microsoft.Office.Interop.Word.Find fnd;
+
+        public WordTextEditor()
         {
-            this.coordinatesWithWords = coordinatesWithWords;
+            application = new Application();
+            Microsoft.Office.Interop.Word.Document document = application.Documents.Open(@"C:\Users\tomer\Desktop\Yael\Test\Test1.docx");
+            fnd = application.ActiveWindow.Selection.Find;
         }
 
+        public void setSortedValues(List<KeyValuePair<System.Drawing.Point, string>> coordinatesWithWords)
+        {
+            this.coordinatesWithWords = coordinatesWithWords;
+
+        }
         public void openWord()
         {
-            Application application = new Application();
-            Microsoft.Office.Interop.Word.Document document = application.Documents.Open(@"C:\Users\tomer\Desktop\Yael\Test\Test1.docx");
           
            /* //write to document
             Microsoft.Office.Interop.Word.Range rng = document.Application.ActiveDocument.Range(0, 0);
@@ -59,7 +67,6 @@ namespace EyeGaze.TextEditor
                 MessageBox.Show("Suggested replacement: "+ spellingSuggestion.Name);
             */
            // Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application { Visible = true };
-            Microsoft.Office.Interop.Word.Find fnd = application.ActiveWindow.Selection.Find;
             if (count == 0)
             {
                 fnd.Text = "tim";
@@ -69,8 +76,8 @@ namespace EyeGaze.TextEditor
             }
             else
             {
-                fnd.Text = "mous";
-                fnd.Replacement.Text = "mouse";
+                fnd.Text = "caughtt";
+                fnd.Replacement.Text = "caught";
                 fnd.Execute(Replace: WdReplace.wdReplaceAll);
             }
             int x = 1;

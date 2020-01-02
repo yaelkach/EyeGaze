@@ -16,15 +16,18 @@ namespace EyeGaze.OCR
 {
     class AspOCR
     {
-        public AspOCR() { }
-
-        public Dictionary<Point, String> getWordWithCoordinates()
+        private AspriseOCR ocr;
+        public AspOCR()
         {
             AspriseOCR.SetUp();
-            AspriseOCR ocr = new AspriseOCR();
+            ocr = new AspriseOCR();
             ocr.StartEngine("eng", AspriseOCR.SPEED_FASTEST);
             IDictionary<String, Boolean> dict = new Dictionary<String, Boolean>();
             dict.Add(AspriseOCR.PROP_OUTPUT_SEPARATE_WORDS, true);
+        }
+
+        public Dictionary<Point, String> getWordWithCoordinates()
+        {
             //string path = Directory.GetCurrentDirectory();
             String xml = ocr.Recognize(@"C:\Users\tomer\Desktop\Yael\Python-Tesseract\printscreen.png", -1, -1, -1, -1, -1,
                 AspriseOCR.RECOGNIZE_TYPE_ALL, AspriseOCR.OUTPUT_FORMAT_XML,
