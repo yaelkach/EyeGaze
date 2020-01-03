@@ -23,6 +23,7 @@ namespace EyeGaze.TextEditor
             application = new Application();
             Microsoft.Office.Interop.Word.Document document = application.Documents.Open(@"C:\Users\tomer\Desktop\Yael\Test\Test1.docx");
             fnd = application.ActiveWindow.Selection.Find;
+            int x = 1;
         }
 
         public void setSortedValues(List<KeyValuePair<System.Drawing.Point, string>> coordinatesWithWords)
