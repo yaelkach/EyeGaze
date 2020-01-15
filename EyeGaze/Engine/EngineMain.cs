@@ -16,17 +16,17 @@ using EyeGaze.TextEditor;
 
 namespace EyeGaze.Engine
 {
-    class Engine
+    class EngineMain
     {
-        public Engine() { }
+        public EngineMain() { }
         private AspOCR ocr;
         private WordTextEditor word;
         public void startListen()
         {
-            MicrosoftCloudSpeechToText t = new MicrosoftCloudSpeechToText();
+           // MicrosoftCloudSpeechToText t = new MicrosoftCloudSpeechToText();
             ocr = new AspOCR();
-            SpeechToTextAlias.SpeechToText speechToText = new SpeechToTextAlias.SpeechToText(t.GetType());
-            WireEventHandlers(speechToText);
+            //SpeechToTextAlias.SpeechToText speechToText = new SpeechToTextAlias.SpeechToText(t.GetType());
+            //WireEventHandlers(speechToText);
             word = new WordTextEditor();
             
            // speechToText.FindActionFromSpeech();
@@ -75,7 +75,7 @@ namespace EyeGaze.Engine
         }
 
 
-        private Dictionary<Point, double> findDistanceFromCoordinate(int x, int y, List<Point> coordinates)
+        public Dictionary<Point, double> findDistanceFromCoordinate(int x, int y, List<Point> coordinates)
         {
             Dictionary<Point, double> result = new Dictionary<Point, double>();
             foreach (Point point in coordinates)
@@ -89,7 +89,7 @@ namespace EyeGaze.Engine
             return result;
         }
 
-        private List<KeyValuePair<Point, double>> sortByDistance(Dictionary<Point, double> coordinatesDistance)
+        public List<KeyValuePair<Point, double>> sortByDistance(Dictionary<Point, double> coordinatesDistance)
         {
             List<KeyValuePair<Point, double>> myList = coordinatesDistance.ToList();
             myList.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));

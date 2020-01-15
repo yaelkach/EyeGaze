@@ -21,7 +21,7 @@ using System.Xml;
 using Point = System.Drawing.Point;
 using EyeGaze.TextEditor;
 
-using EngineClass = EyeGaze.Engine.Engine;
+using EngineClass = EyeGaze.Engine.EngineMain;
 namespace EyeGaze
 {
     /// <summary>

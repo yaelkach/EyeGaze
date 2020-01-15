@@ -29,7 +29,10 @@ namespace EyeGaze.OCR
         public Dictionary<Point, String> getWordWithCoordinates()
         {
             //string path = Directory.GetCurrentDirectory();
-            String xml = ocr.Recognize(@"C:\Users\tomer\Desktop\Yael\Python-Tesseract\printscreen.png", -1, -1, -1, -1, -1,
+            Screenshot screenShot = new Screenshot();
+
+            String picLocation = screenShot.CaptureScreenShot();
+            String xml = ocr.Recognize(@"C:\Users\tomer\Desktop\Yael\EyeGaze\Screenshots\screenshot100.jpg", -1, -1, -1, -1, -1,
                 AspriseOCR.RECOGNIZE_TYPE_ALL, AspriseOCR.OUTPUT_FORMAT_XML,
                 new object[] { AspriseOCR.PROP_OUTPUT_SEPARATE_WORDS, true });
             XmlDocument xmlDoc = new XmlDocument();

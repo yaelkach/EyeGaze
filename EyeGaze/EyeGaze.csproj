@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -93,6 +94,9 @@
     <Reference Include="Microsoft.Scripting.Metadata, Version=1.2.2.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <HintPath>..\packages\DynamicLanguageRuntime.1.2.2\lib\net45\Microsoft.Scripting.Metadata.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -119,8 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="OCR\Screenshot.cs" />
+    <Compile Include="Tests\UnitTests\EngineTests.cs" />
     <Compile Include="TextEditor\WordTextEditor.cs" />
-    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Engine\EngineMain.cs" />
     <Compile Include="EyeTracking\EyeGaze.cs" />
     <Compile Include="SpeechToText\InterfaceSpeechToText.cs" />
     <Compile Include="SpeechToText\MessageEvent.cs" />
@@ -184,6 +190,7 @@
     <Error Condition="!Exists('..\packages\Python37.1.0.0.1\build\python37.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Python37.1.0.0.1\build\python37.targets'))" />
     <Error Condition="!Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tesseract.3.3.0\build\Tesseract.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CognitiveServices.Speech.1.8.0\build\net461\Microsoft.CognitiveServices.Speech.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CognitiveServices.Speech.1.8.0\build\net461\Microsoft.CognitiveServices.Speech.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
   </Target>
   <Import Project="..\packages\Tesseract.3.3.0\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" />
   <Import Project="..\packages\Microsoft.CognitiveServices.Speech.1.8.0\build\net461\Microsoft.CognitiveServices.Speech.targets" Condition="Exists('..\packages\Microsoft.CognitiveServices.Speech.1.8.0\build\net461\Microsoft.CognitiveServices.Speech.targets')" />

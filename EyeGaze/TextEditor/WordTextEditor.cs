@@ -21,7 +21,7 @@ namespace EyeGaze.TextEditor
         public WordTextEditor()
         {
             application = new Application();
-            Microsoft.Office.Interop.Word.Document document = application.Documents.Open(@"C:\Users\tomer\Desktop\Yael\Test\Test1.docx");
+            Microsoft.Office.Interop.Word.Document document = application.Documents.Open(@"C:\Users\tomer\Desktop\Yael\Test\Test4.docx");
             fnd = application.ActiveWindow.Selection.Find;
             int x = 1;
         }
